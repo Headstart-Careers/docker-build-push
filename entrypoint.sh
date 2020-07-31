@@ -63,7 +63,7 @@ sh -c "docker build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET --build-a
 # If Docker name name space is pecified add to registry
 if [ -n "$GCLOUD_AUTH" ]
  then
-  REGISTRY_IMAGE="$REGISTRY/$IMAGE_NAME"
+  REGISTRY_IMAGE="$REGISTRY/$IMAGE_NAME/$IMAGE_NAME"
 else 
   REGISTRY_IMAGE="$NAMESPACE/$IMAGE_NAME"
 fi
