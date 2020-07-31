@@ -25,6 +25,16 @@ DOCKER_IMAGE_TAG="$2"
 DOCKER_DIR="$3"
 DOCKER_TARGET="$4"
 
+BUILD_ARG_1="${5:-BUILD_ARG_1}"
+BUILD_ARG_2="${6:-BUILD_ARG_2}"
+BUILD_ARG_3="${7:-BUILD_ARG_3}"
+BUILD_ARG_4="${8:-BUILD_ARG_4}"
+BUILD_ARG_5="${9:-BUILD_ARG_5}"
+BUILD_ARG_6="${10:-BUILD_ARG_6}"
+BUILD_ARG_7="${11:-BUILD_ARG_7}"
+BUILD_ARG_8="${12:-BUILD_ARG_8}"
+BUILD_ARG_9="${13:-BUILD_ARG_9}"
+
 USERNAME=${GITHUB_REPOSITORY%%/*}
 REPOSITORY=${GITHUB_REPOSITORY#*/}
 
@@ -48,7 +58,7 @@ fi
 
 
 # Build Docker Image Locally with provided Image Name
-sh -c "docker build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET" ## pass in the build command from user input, otherwise build in default mode
+sh -c "docker build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET --build-arg $BUILD_ARG_1  --build-arg $BUILD_ARG_2 --build-arg $BUILD_ARG_3 --build-arg $BUILD_ARG_4 --build-arg $BUILD_ARG_5 --build-arg $BUILD_ARG_6 --build-arg $BUILD_ARG_7 --build-arg $BUILD_ARG_8 --build-arg $BUILD_ARG_9"
 
 # If Docker name name space is pecified add to registry
 if [ -n "$GCLOUD_AUTH" ]
