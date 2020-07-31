@@ -18,7 +18,16 @@ runs:
     - ${{ inputs.image_tag }}
     - ${{ inputs.docker_dir }}
     - ${{ inputs.docker_target }}
-
+    - ${{ inputs.build_arg1 }}
+    - ${{ inputs.build_arg2 }}
+    - ${{ inputs.build_arg3 }}
+    - ${{ inputs.build_arg4 }}
+    - ${{ inputs.build_arg5 }}
+    - ${{ inputs.build_arg6 }}
+    - ${{ inputs.build_arg7 }}
+    - ${{ inputs.build_arg8 }}
+    - ${{ inputs.build_arg9 }}
+    
 branding:
   icon: 'upload-cloud'  
   color: 'blue'
