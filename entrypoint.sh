@@ -49,7 +49,7 @@ IMAGE_TAG=${DOCKER_IMAGE_TAG:-$GIT_TAG} ## use git ref value as docker image tag
 if [ -n "$GCLOUD_AUTH" ]
  then
   # Guide here https://cloud.google.com/container-registry/docs/advanced-authentication#gcloud_docker
-  docker login -u _json_key --password-stdin https://$REGISTRY < "$HOME"/gcloud-service-key.json
+  docker login -u _json_key --password-stdin australia-southeast1-docker.pkg.dev/headstart-270406/headstart/headstart < "$HOME"/gcloud-service-key.json
 elif [ -n "$DOCKER_PASSWORD" ]
  then
   sh -c "cat "$HOME"/docker-login_password.text | docker login --username $DOCKER_USERNAME --password-stdin"
