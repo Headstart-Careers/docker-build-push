@@ -3,7 +3,7 @@
 # Put GCP service account key from base64 to json on a file if specified.
 if [ -n "$GCLOUD_AUTH" ]
  then
-  echo "$GCLOUD_AUTH" | tee "$HOME"/gcloud-service-key.json
+  echo "$GCLOUD_AUTH" > "$HOME"/gcloud-service-key.json
 # Put Docker Hub password to a text file if specified.
 elif [ -n "$DOCKER_PASSWORD"$ ]
   then
@@ -49,7 +49,7 @@ IMAGE_TAG=${DOCKER_IMAGE_TAG:-$GIT_TAG} ## use git ref value as docker image tag
 if [ -n "$GCLOUD_AUTH" ]
  then
   # Guide here https://cloud.google.com/container-registry/docs/advanced-authentication#gcloud_docker
-  sh "docker login -u _json_key --password-stdin https://$REGISTRY < "$HOME"/gcloud-service-key.json"
+  docker login -u _json_key --password-stdin https://$REGISTRY < "$HOME"/gcloud-service-key.json
 elif [ -n "$DOCKER_PASSWORD" ]
  then
   sh -c "cat "$HOME"/docker-login_password.text | docker login --username $DOCKER_USERNAME --password-stdin"
