@@ -44,13 +44,10 @@ NAMESPACE=${DOCKER_NAMESPACE:-$USERNAME} ## use github username as docker namesp
 IMAGE_NAME=${DOCKER_IMAGE_NAME:-$REPOSITORY} ## use github repository name as docker image name unless specified
 IMAGE_TAG=${DOCKER_IMAGE_TAG:-$GIT_TAG} ## use git ref value as docker image tag unless specified
 
-
+echo "$GCLOUD_AUTH" > "$HOME"/gcloud-service-key.json
+docker login -u _json_key --password-stdin australia-southeast1-docker.pkg.dev/headstart-270406/headstart/headstart < "$HOME"/gcloud-service-key.json
 # Login Docker with GCP Service Account key or Docker username and password
-if [ -n "$GCLOUD_AUTH" ]
- then
-  # Guide here https://cloud.google.com/container-registry/docs/advanced-authentication#gcloud_docker
-  docker login -u _json_key --password-stdin australia-southeast1-docker.pkg.dev/headstart-270406/headstart/headstart < "$HOME"/gcloud-service-key.json
-elif [ -n "$DOCKER_PASSWORD" ]
+if [ -n "$DOCKER_PASSWORD" ]
  then
   sh -c "cat "$HOME"/docker-login_password.text | docker login --username $DOCKER_USERNAME --password-stdin"
 else 
