@@ -59,7 +59,7 @@ fi
 
 
 # Build Docker Image Locally with provided Image Name
-sh -c "docker-compose build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET --build-arg $BUILD_ARG_1  --build-arg $BUILD_ARG_2 --build-arg $BUILD_ARG_3 --build-arg $BUILD_ARG_4 --build-arg $BUILD_ARG_5 --build-arg $BUILD_ARG_6 --build-arg $BUILD_ARG_7 --build-arg $BUILD_ARG_8 --build-arg $BUILD_ARG_9"
+sh -c "docker build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET --build-arg $BUILD_ARG_1  --build-arg $BUILD_ARG_2 --build-arg $BUILD_ARG_3 --build-arg $BUILD_ARG_4 --build-arg $BUILD_ARG_5 --build-arg $BUILD_ARG_6 --build-arg $BUILD_ARG_7 --build-arg $BUILD_ARG_8 --build-arg $BUILD_ARG_9"
 
 # If Docker name name space is pecified add to registry
 if [ -n "$GCLOUD_AUTH" ]
